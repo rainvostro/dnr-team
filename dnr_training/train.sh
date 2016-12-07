@@ -1,4 +1,4 @@
-#
+#!/bin/bash
 
 IMAGES_DIRECTORY="/trainingData"
 EXAMS_METADATA_FILENAME="/metadata/exams_metadata.tsv"
