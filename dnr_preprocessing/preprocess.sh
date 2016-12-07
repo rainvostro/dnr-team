@@ -1,23 +1,24 @@
 #!/bin/bash
 # Resizes all the training images to the same size and 
-# saves them to PNG format using ImageMagick.
+# saves them to PNG format using ImageMagick then classify them into subfolders by the label accordingly.
 #
 # Tasks:
 # - resize the images
 # - save to PNG format
+# - subfolder images to train and val directories
 #
 # In addition, a label file at the image level is generated
 # using information from the exams metadata table (see generate_labels.py).
 #
-# Author: Thomas Schaffter (thomas.schaff...@gmail.com)
-# Last update: 2016-11-02
+# Author: Thomas Schaffter (thomas.schaff...@gmail.com) and DNR Team
+# 
 
 IMAGES_DIRECTORY="/trainingData"
 EXAMS_METADATA_FILENAME="/metadata/exams_metadata.tsv"
 IMAGES_CROSSWALK_FILENAME="/metadata/images_crosswalk.tsv"
+PREPROCESS_DIRECTORY="/preprocessedData" 
 IMAGE_LABELS_FILENAME="$PREPROCESS_DIRECTORY/metadata/image_labels.txt" #2
 
-PREPROCESS_DIRECTORY="/preprocessedData" 
 PREPROCESS_IMAGES_DIRECTORY="$PREPROCESS_DIRECTORY/images" 
 PREPROCESS_IMAGES_TRAIN_DIRECTORY="$PREPROCESS_IMAGES_DIRECTORY/train"
 PREPROCESS_IMAGES_VAL_DIRECTORY="$PREPROCESS_IMAGES_DIRECTORY/val"
