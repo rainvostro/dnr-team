@@ -113,3 +113,24 @@ model.fit_generator(
         validation_data=validation_generator,
         nb_val_samples=800)
 
+# save model to JSON
+model_json = model.to_json()
+with open("model.json", "w") as json_file:
+    json_file.write(model_json)
+    
+# save weights to HDF5
+model.save_weights("model.h5")
+print("Saved model to disk")
+
+confusion_mat = confusion_matrix(y_test, y_pred)
+print(confusion_mat.shape)
+tp = confusion_mat[0,0]
+tn = confusion_mat[0,1]
+fp = confusion_mat[1,0]
+fn = confusion_mat[1,1]
+print("True Positive: ", tp,"\nTrue Negative: ", tn,"\nFalse Positive: ", fp,"\nFalse Negative: ", fn)
+
+prec, rec, fms, sup = precision_recall_fscore_support(y_test, y_pred)
+print('Precision: {}'.format(prec))
+print('Recall: {}'.format(rec))
+print('F1-Score: {}'.format(fms))
