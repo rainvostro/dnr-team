@@ -9,7 +9,7 @@ from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Activation, Dropout, Flatten, Dense
-
+from sklearn.metrics import confusion_matrix, precision_recall_fscore_support
 
 # In[2]:
 
@@ -130,7 +130,10 @@ fp = confusion_mat[1,0]
 fn = confusion_mat[1,1]
 print("True Positive: ", tp,"\nTrue Negative: ", tn,"\nFalse Positive: ", fp,"\nFalse Negative: ", fn)
 
+acc = accuracy_score(y_test, y_pred)
+rocauc = roc_auc_score(y_test, y_pred)
 prec, rec, fms, sup = precision_recall_fscore_support(y_test, y_pred)
-print('Precision: {}'.format(prec))
-print('Recall: {}'.format(rec))
+
+print('Accuracy: {}'.format(acc))
+print('ROC AUC: {}'.format(rocauc))
 print('F1-Score: {}'.format(fms))
