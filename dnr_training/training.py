@@ -114,26 +114,12 @@ model.fit_generator(
         nb_val_samples=800)
 
 # save model to JSON
+modelstatedir = sys.argv[7]
+
 model_json = model.to_json()
-with open("model.json", "w") as json_file:
+with open(modelstatedir + "model.json", "w") as json_file:
     json_file.write(model_json)
     
 # save weights to HDF5
-model.save_weights("model.h5")
+model.save_weights(modelstatedir + "model.h5")
 print("Saved model to disk")
-
-confusion_mat = confusion_matrix(y_test, y_pred)
-print(confusion_mat.shape)
-tp = confusion_mat[0,0]
-tn = confusion_mat[0,1]
-fp = confusion_mat[1,0]
-fn = confusion_mat[1,1]
-print("True Positive: ", tp,"\nTrue Negative: ", tn,"\nFalse Positive: ", fp,"\nFalse Negative: ", fn)
-
-acc = accuracy_score(y_test, y_pred)
-rocauc = roc_auc_score(y_test, y_pred)
-prec, rec, fms, sup = precision_recall_fscore_support(y_test, y_pred)
-
-print("Accuracy: {}".format(acc))
-print("ROC AUC: {}".format(rocauc))
-print("F1-Score: {}".format(fms))
