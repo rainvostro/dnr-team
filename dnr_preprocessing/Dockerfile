@@ -31,7 +31,7 @@ RUN conda install -y \
   && pip install pandas \
 && pip install git+git://github.com/fchollet/keras.git
 	
-RUN wget http://www.imagemagick.org/download/ImageMagick-7.0.3-9.tar.gz \
+RUN wget http://www.imagemagick.org/download/ImageMagick-7.0.4-0.tar.gz \
   && tar xzvf ImageMagick-7.0.3-9.tar.gz \
   && cd ImageMagick-7.0.3-9 \
   && ./configure --prefix=/opt/imagemagick-6.8 && make
