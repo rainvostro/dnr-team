@@ -44,8 +44,8 @@ def generateImageLabels(images, metadata):
 
 
 if __name__ == '__main__':
-        examsMetadataFilename = sys.argv[1]
-	imagesCrosswalkFilename = sys.argv[2]
+        examsMetadataFilename = sys.argv[7]
+	imagesCrosswalkFilename = sys.argv[8]
 	labelsFilename = sys.argv[3]
 
 	# Read the label from the exams metadata
