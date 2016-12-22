@@ -35,7 +35,6 @@ RUN echo "configure Keras with Theano.."
 RUN mkdir /root/.keras
 RUN mkdir /root/.keras/models
 COPY keras.json /root/.keras
-COPY .theanorc /root
 
 # copy training and test files
 RUN echo "copy training & test files.."
